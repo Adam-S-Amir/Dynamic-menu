@@ -18,3 +18,9 @@ Upscale your website menu's with this purely JS API!
                 <script src="./Start-Menu-Styles-2.js"></script>
             </div>
 ```
+
+npm
+
+```
+npm install @magnusmarks/dynamic-menu
+```
