@@ -1,0 +1,12 @@
+.inner-menu {
+  border: none;
+  border-width: 0;
+  border-style: none;
+}
+
+.inner-menu tr {
+  background-color: #cccccc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 10px;
+}
