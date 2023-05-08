@@ -15,6 +15,6 @@ Upscale your website menu's with this purely JS API!
                         </tr>
                     </tbody>
                 </table>
-                <script src="./Start-Styles-2.js"></script>
+                <script src="./Start-Menu-Styles-2.js"></script>
             </div>
 ```
