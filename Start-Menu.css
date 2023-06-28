@@ -10,3 +10,7 @@
   font-weight: normal;
   font-size: 10px;
 }
+
+.tbody-td {
+  border-left: solid 1px #dfdfdf;
+}

@@ -1,10 +1,4 @@
 var ddcp = null;
-if (dbb1) {
-    dp1.onselectstart = function () {
-        return doc.dbbq ? false : true;
-    };
-}
-
 function dd1c(e) {
     with(e) {
         return [dqp || dpl ? clientX : pageX, dqp || dpl ? clientY : pageY];

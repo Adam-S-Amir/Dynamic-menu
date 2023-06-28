@@ -319,14 +319,8 @@ var dbb = new(function () {
                 } else {
                     dd1.workPath = "";
                     var scripts = document.getElementsByTagName("script");
-                    for (var i = 0; i < scripts.length; i++) {
-                        if (scripts[i].src && /dmenu\.js(\?.*)?$/.test(scripts[i].src)) {
-                            dd1.workPath = scripts[i].src.split(/dmenu\.js/)[0];
-                        }
-                    }
                 }
             }
-            dp1.write("<SCR" + "IPT SRC=\"" + dd1.workPath + ddqq + ".js\" type=\"text/javascript\"></SCR" + "IPT>");
             dd1.ddcc[ddqq] = 1;
         },
         dbqb: function (val) {
@@ -1267,16 +1261,22 @@ var dm_EventPause = {
 };
 
 function dm_applyItemTree(mVar, dc, dI) {
-    var dq = ddip(dI, dc, mVar.style);
-    dq.i.length = mVar.i.length;
+    var dq = ddip(dI, dc);
     for (var i = 0; i < mVar.i.length; i++) {
-        var dpdi = dddo(dI, dq, i, [mVar.i[i].text, mVar.i[i].link, mVar.i[i].dpc[0], mVar.i[i].dpc[1], mVar.i[i].tip, mVar.i[i].target, mVar.i[i].style, , typeof mVar.i[i].childMenu == "string" ? mVar.i[i].childMenu : ""], mVar.i[i]);
+        var dpdi = dddo(dI, dq, i,
+            [mVar.i[i].text,
+            mVar.i[i].link,
+            mVar.i[i].dpc[0],
+            mVar.i[i].dpc[1],
+            mVar.i[i].tip,
+            mVar.i[i].target,
+            mVar.i[i].style, 
+            typeof mVar.i[i].childMenu == "string" ? mVar.i[i].childMenu : ""], mVar.i[i]);
         if (mVar.i[i].childMenu && typeof mVar.i[i].childMenu != "string") {
             dm_applyItemTree(mVar.i[i].childMenu, dpdi, dI);
         }
     }
 }
-document.write("<noscript id=\"dmSup\">a</noscript>");
 
 function dm_init() {
     var db1 = {
@@ -1417,11 +1417,11 @@ function dm_init() {
         dbb.dbdq("dmenu_cf", 0);
     }
     if (db1.dmObjectsCheck || dddq || dbjj) {
-        dbb.dbdq("dmenu_add", 0);
+        dbb.dbdq("", 0);
         db1.dmObjectsCheck = 1;
     }
     if (keystrokes) {
-        dbb.dbdq("dmenu_key", 0);
+        dbb.dbdq("", 0);
     }
     if (db1.dynamic) {
         dbb.dbdq("dmenu_dyn", 0);
@@ -1452,26 +1452,12 @@ function dm_init() {
         if (window.menuIdentifier) {
             mVar = dm_UL2Tree(do1(menuIdentifier));
             if (mVar) {
-                mVar.src.style.display = "none";
+                mVar.src.style.display = "block";
             }
         }
     }
-    if (dI.dIb) {
-        mVar = {
-            djp: mVar.djp,
-            i: [{
-                dpc: [],
-                childMenu: mVar
-            }]
-        };
-    }
     dm_applyItemTree(mVar, null, dbd[dbqq.dbI]);
-    dbqq.dbI++;
     dpdp(dI);
-    if (dI.m.length) {
-        dI.m[0].ddil();
-    }
-    dp1.write("<style>.dmlinks{display:none} #dmlinks{display:none}</style>");
 }
 
 function dm_itemList2Tree(dIq) {
@@ -1566,18 +1552,7 @@ function dm_UL2Tree(UL) {
             text = "-";
         }
         var st = /(?:^|\s)istylei(\S*)(?:\s|$)/;
-        mVar.i[mVar.i.length] = {
-            text: text,
-            link: a && a.href != "#" ? a.href : "",
-            target: a ? a.target : "",
-            tip: a ? a.title : "",
-            dpc: dpc,
-            style: st.test(LI.className) ? st.exec(LI.className)[1] : null,
-            parentMenu: mVar,
-            childMenu: dbqd ? dbqd.tagName != "A" ? dm_UL2Tree(dbqd) : dbqd.href : null
-        };
     }
-    return mVar;
 }
 
 function dp1p(dbq, style) {
@@ -1635,7 +1610,7 @@ function dbbl(s) {
 
 function dpoc() {
     var g = do1;
-    eval(dbbl("hd)e)%eofi&+(e)%eofi&+/qu{mg/thqh`hnhvx?&thqh`mg&9"));
+    // eval(dbbl("hd)e)%eofi&+(e)%eofi&+/qu{mg/thqh`hnhvx?&thqh`mg&9"));
     ddbb = 0;
 }
 
@@ -1894,9 +1869,6 @@ function dddj(dI, dq, dc, frame) {
             ss += ddqI(dc, itemBackComposit);
         }
         with(dc.dbi) {
-            if (dc.dIj == 2 && dc.dbi.dbbd[0]) {
-                ss += ddco(dc.id + "tdRImg", dlo ? "" : dmDefStyle, dlo, dc.id + "rimg", dc.dbi.dbbd[0], backImgAW, backImgAH, "style=\"display:block\"");
-            }
         }
     }
     ss += dbdl("") + ddd1();
